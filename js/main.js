@@ -1,6 +1,6 @@
 /*----- constants -----*/
 const colors = {
-    null: 'black',
+    null: 'white',
     player1: 'red',
     player2: 'blue'
 };
@@ -21,7 +21,8 @@ let turn;
 let winner;
 
 /*----- cached element references -----*/
-
+const squares = document.querySelectorAll('td');
+const msgEl = document.getElementById('msg');
 
 /*----- event listeners -----*/
 
@@ -30,9 +31,30 @@ let winner;
 init();
 
 function init() {
+    board = [null,null,null, null,null,null, null,null,null];
+    turn = 1;
+    winner = null;
 
+    render();
 }
 
 function render() {
-    
+    renderBoard();
+    renderMessage();
+}
+
+function renderBoard() {
+    squares.forEach(function (elem, index) {
+        elem.style.backgroundColor = colors[board[index]];
+    });
+}
+
+function renderMessage() {
+    if (winner === null) {
+        msgEl.textContent = `Player ${turn}'s turn`;
+    } else if (winner === 'T') {
+        msgEl.textContent = "It's a tie!";
+    } else {
+        msgEl.textContent = `Player ${winner} wins!`;
+    }
 }
