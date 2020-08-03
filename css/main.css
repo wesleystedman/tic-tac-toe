@@ -1,3 +1,12 @@
+header {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 24px;
+}
+
 #gameboard {
     border-collapse: collapse;
 }
@@ -5,8 +14,6 @@
 #gameboard td {
     width: 100px;
     height: 100px;
-    text-align: center;
-    font-size: 48px;
     border-color: black;
     border-width: 3px;
     cursor: pointer;
