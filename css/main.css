@@ -1,0 +1,43 @@
+#gameboard {
+    border-collapse: collapse;
+}
+
+#gameboard td {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    font-size: 48px;
+    border-color: black;
+    border-width: 3px;
+    cursor: pointer;
+}
+
+#gameboard td.top {
+    border-bottom-style: solid;
+}
+
+#gameboard td.middle {
+    border-top-style: solid;
+    border-bottom-style: solid;
+}
+
+#gameboard td.bottom {
+    border-top-style: solid;
+}
+
+#gameboard td.left {
+    border-right-style: solid;
+}
+
+#gameboard td.center {
+    border-left-style: solid;
+    border-right-style: solid;
+}
+
+#gameboard td.right {
+    border-left-style: solid;
+}
+
+#gameboard td.filled {
+    cursor: not-allowed;
+}
