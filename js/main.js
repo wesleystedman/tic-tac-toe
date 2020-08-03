@@ -1,8 +1,8 @@
 /*----- constants -----*/
 const colors = {
     null: 'white',
-    player1: 'red',
-    player2: 'blue'
+    '1': 'red',
+    '-1': 'blue'
 };
 const winningStates = [
     [0,1,2],
@@ -25,10 +25,32 @@ const squares = document.querySelectorAll('td');
 const msgEl = document.getElementById('msg');
 
 /*----- event listeners -----*/
-
+document.getElementById('gameboard').addEventListener('click', handleSquareClick);
+document.getElementById('replay').addEventListener('click', init);
 
 /*----- functions -----*/
 init();
+
+function handleSquareClick (event) {
+    let squareIndex = event.target.id;
+    if (board[squareIndex] !== null) return;
+    if (winner !== null) return;
+
+    board[squareIndex] = turn;
+    turn *= -1;
+
+    winningStates.forEach(function (state) {
+        if (Math.abs(board[state[0]] + board[state[1]] + board[state[2]]) === 3) {
+            winner = board[state[0]];
+            return;
+        }
+    });
+    if (winner === null && !board.includes(null)) {
+        winner = 'T';
+    }
+
+    render();
+}
 
 function init() {
     board = [null,null,null, null,null,null, null,null,null];
@@ -51,10 +73,10 @@ function renderBoard() {
 
 function renderMessage() {
     if (winner === null) {
-        msgEl.textContent = `Player ${turn}'s turn`;
+        msgEl.textContent = `${colors[turn].toUpperCase()} player's turn`;
     } else if (winner === 'T') {
         msgEl.textContent = "It's a tie!";
     } else {
-        msgEl.textContent = `Player ${winner} wins!`;
+        msgEl.textContent = `${colors[winner].toUpperCase()} player wins!`;
     }
 }

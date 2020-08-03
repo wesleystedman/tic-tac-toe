@@ -12,32 +12,32 @@
     cursor: pointer;
 }
 
-#gameboard td.top {
+#gameboard .top {
     border-bottom-style: solid;
 }
 
-#gameboard td.middle {
+#gameboard .middle {
     border-top-style: solid;
     border-bottom-style: solid;
 }
 
-#gameboard td.bottom {
+#gameboard .bottom {
     border-top-style: solid;
 }
 
-#gameboard td.left {
+#gameboard .left {
     border-right-style: solid;
 }
 
-#gameboard td.center {
+#gameboard .center {
     border-left-style: solid;
     border-right-style: solid;
 }
 
-#gameboard td.right {
+#gameboard .right {
     border-left-style: solid;
 }
 
-#gameboard td.filled {
+#gameboard .filled {
     cursor: not-allowed;
 }
